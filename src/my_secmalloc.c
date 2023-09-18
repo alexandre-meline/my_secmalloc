@@ -169,7 +169,7 @@ int add_metadata_block(StackMetadata st_new_current_meta, int sz_size)
     st_new_current_meta->b_isfree = false;
     my_log("* Définition d'autres paramètres secondaires.\n");
 
-    // we connect our new block to the previous ones
+    // we update the pointers of our metadata blocks
     st_data_left->p_next = st_new_current_meta->p_next;
     if (st_new_current_meta->p_next != NULL)
         st_new_current_meta->p_next->p_prev = st_data_left;
@@ -241,6 +241,7 @@ void* my_malloc(size_t sz_size)
             my_log("*%s%s [ ERREUR ] Une erreur s'est produite pendant l'initialisation du pool de données ou du pool de metadonnées : code erreur %d%s%s\n", ANSI_COLOR_RED, ANSI_STYLE_BOLD, ANSI_COLOR_RESET, ANSI_STYLE_RESET, errno);
             exit(EXIT_FAILURE);
         }
+        // we indicate that our data pool and our metadata pool are now created
         b_isused = true;
     }
 
@@ -276,6 +277,7 @@ void* my_malloc(size_t sz_size)
         if (st_current_meta->p_next != NULL && st_current_meta->p_next != st_current_meta)
             st_current_meta = st_current_meta->p_next;
         else
+            // if we have reached the end of our metadata list, we stop the loop
             b_isiterating = false;
     }
 
