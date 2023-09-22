@@ -38,4 +38,4 @@ Le projet inclut également des tests unitaires pour vérifier le bon fonctionne
 
 ## Auteurs
 
-Le projet my_secmalloc a été développé par Alexandre Meline et Thomas Devienne.
+Le projet my_secmalloc a été développé par [Alexandre Meline](https://www.linkedin.com/in/alexandre-m-020512234/) et [Thomas Devienne]([https://ecole2600.com/](https://www.linkedin.com/in/thomas-devienne/?originalSubdomain=fr)https://www.linkedin.com/in/thomas-devienne/?originalSubdomain=fr).
